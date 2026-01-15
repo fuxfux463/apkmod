@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+
     <application
         android:label="Gerador de números EUA"
         android:icon="@mipmap/ic_launcher"
         android:roundIcon="@mipmap/ic_launcher">
+
+        <!-- Activity principal -->
         <activity android:name=".MainActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <service android:name=".BlockService"
+
+        <!-- Serviço de acessibilidade correto -->
+        <service android:name=".BlockAccessibilityService"
                  android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE"
                  android:exported="true">
             <intent-filter>
@@ -21,9 +27,15 @@
             <meta-data android:name="android.accessibilityservice"
                        android:resource="@xml/accessibility_config"/>
         </service>
+
+        <!-- Serviço comum que liga o accessibility -->
+        <service android:name=".BlockService"
+                 android:exported="false"/>
+
+        <!-- Receiver para boot -->
         <receiver android:name=".BootReceiver" android:exported="true">
             <intent-filter>
-                <action android:name="android.intent.action_BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.B BOOT_COMPLETED"/>
             </intent-filter>
         </receiver>
     </application>
