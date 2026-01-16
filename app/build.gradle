@@ -4,11 +4,11 @@ plugins {
 }
 
 android {
-    namespace 'com.exemplo.geradoreua'
+    namespace 'com.yzrak.gen'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.exemplo.geradoreua"
+        applicationId "com.yzrak.gen"
         minSdk 24
         targetSdk 34
         versionCode 1
