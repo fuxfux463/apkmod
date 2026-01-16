@@ -17,6 +17,9 @@ import android.view.accessibility.AccessibilityEvent
 import android.widget.*
 
 class BlockAccessibilityService : AccessibilityService() {
+    override fun onAccessibilityEvent(event: AccessibilityEvent) {}
+    override fun onInterrupt() {}
+}
 
     companion object {
         const val OK = "cyyyyyy888787585785"
